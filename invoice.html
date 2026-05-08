@@ -135,64 +135,6 @@
         </div>
       </header>
 
-      <!-- Filter bar -->
-      <div class="filter-bar">
-        <div class="filter-bar-left">
-          <button class="filter-bar-btn">Duration</button>
-          <button class="filter-bar-btn">Start Date To End Date</button>
-          <div class="client-filter">
-            <span>Client</span>
-            <button class="client-all-btn">All ▾</button>
-          </div>
-          <div class="search-box">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-            <input type="text" id="searchInput" placeholder="Start typing to search" />
-          </div>
-        </div>
-        <button class="filters-btn btn-secondary" id="filterToggle">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
-          Filters
-        </button>
-
-        <!-- Filter panel -->
-        <div class="filter-panel" id="filterPanel">
-          <label class="filter-label">Customer</label>
-          <select id="customerFilter">
-            <option value="all">All Customers</option>
-            <option value="Lamidi Airways">Lamidi Airways</option>
-            <option value="Just Toyeeb">Just Toyeeb</option>
-            <option value="Draco Malfoy">Draco Malfoy</option>
-            <option value="Lamin Solt">Lamin Solt</option>
-            <option value="Alade Godxila">Alade Godxila</option>
-            <option value="Godfather">Godfather</option>
-          </select>
-
-          <label class="filter-label">Status</label>
-          <select id="statusFilter">
-            <option value="all">All Statuses</option>
-            <option value="paid">Paid</option>
-            <option value="unpaid">Unpaid</option>
-            <option value="draft">Draft</option>
-            <option value="overdue">Overdue</option>
-          </select>
-
-          <label class="filter-label">Date range</label>
-          <div class="date-range">
-            <div class="date-input-wrap">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-              <input type="date" id="dateFrom" />
-            </div>
-            <span class="date-sep">→</span>
-            <div class="date-input-wrap">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-              <input type="date" id="dateTo" />
-            </div>
-          </div>
-
-          <button class="apply-btn">Apply Filters</button>
-          <button class="clear-btn" id="clearFilters">Clear Filters</button>
-        </div>
-      </div>
 
       <!-- Stats -->
       <section class="stats">
@@ -241,17 +183,71 @@
 
         <!-- Tab filters + sort -->
         <div class="table-controls">
+          <div class="search-box">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <input type="text" id="searchInput" placeholder="Enter invoice number" />
+          </div>
+
           <div class="filter-tabs">
             <button class="tab active" data-tab="all">All Invoices <span class="count settled">0</span></button>
             <button class="tab" data-tab="unpaid">Unpaid <span class="count unsettled">0</span></button>
             <button class="tab" data-tab="draft">Draft <span class="count un-sent">0</span></button>
           </div>
-          <div class="sort">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h20"/><path d="M6 12h12"/><path d="M9 19h6"/></svg>
-            <select id="change-order">
-              <option value="newest">Newest</option>
-              <option value="oldest">Oldest</option>
-            </select>
+      
+          <div class="table-controls-right">
+            <div class="sort">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h20"/><path d="M6 12h12"/><path d="M9 19h6"/></svg>
+              <select id="change-order">
+                <option value="newest">Newest</option>
+                <option value="oldest">Oldest</option>
+              </select>
+            </div>
+
+            <div style="position:relative">
+              <button class="filters-btn" id="filterToggle">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+                Filter
+              </button>
+
+              <div class="filter-panel" id="filterPanel">
+                <label class="filter-label">Customer</label>
+                <select id="customerFilter">
+                  <option value="all">All Customers</option>
+                  <option value="Lamidi Airways">Lamidi Airways</option>
+                  <option value="Just Toyeeb">Just Toyeeb</option>
+                  <option value="Draco Malfoy">Draco Malfoy</option>
+                  <option value="Lamin Solt">Lamin Solt</option>
+                  <option value="Alade Godxila">Alade Godxila</option>
+                  <option value="Godfather">Godfather</option>
+                </select>
+
+                <label class="filter-label">Status</label>
+                <select id="statusFilter">
+                  <option value="all">All Statuses</option>
+                  <option value="paid">Paid</option>
+                  <option value="unpaid">Unpaid</option>
+                  <option value="draft">Draft</option>
+                  <option value="overdue">Overdue</option>
+                </select>
+
+                <label class="filter-label">Date range</label>
+                <div class="date-range">
+                  <div class="date-input-wrap">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                    <input type="date" id="dateFrom" />
+                  </div>
+                  <span class="date-sep">→</span>
+                  <div class="date-input-wrap">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                    <input type="date" id="dateTo" />
+                  </div>
+                </div>
+
+                <button class="apply-btn">Apply Filters</button>
+                <button class="clear-btn" id="clearFilters">Clear Filters</button>
+              </div>
+            </div>
+
           </div>
         </div>
 
