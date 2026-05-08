@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create Invoice</title>
+  <link rel="stylesheet" href="create-invoice.css" />
+</head>
+
+<body>
+  <div class="app">
+
+    <!-- 🔹 Sidebar -->
+    <aside class="sidebar">
+        <span class="menu-label">Menu</span>
+
+        <button class="menu-item" aria-label="People">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </button>
+
+        <button class="menu-item" aria-label="Account">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+        </button>
+
+        <button class="menu-item active" aria-label="Invoices" aria-current="page">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8l6 6v12a2 2 0 0 1-2 2z"/><path d="M14 2v6h6"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+        </button>
+
+        <button class="menu-item" aria-label="Vault">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+        </button>
+
+        <button class="menu-item" aria-label="Documents">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h14a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v4"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m3 15 2 2 4-4"/></svg>
+        </button>
+
+        <button class="menu-item" aria-label="Settings">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </button>
+    </aside>
+
+    <!-- 🔹 Page Content -->
+    <div class="page">
+
+      <!-- 🔸 Left: Form Panel -->
+      <section class="form-panel">
+
+        <a href="invoice.html" class="back-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5"/><path d="m12 19-7-7 7-7"/>
+          </svg>
+          Invoices
+        </a>
+
+        <h1>Create New Invoice</h1>
+        <p class="subtitle">Fill in invoice details</p>
+        <p class="hint">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>
+          </svg>
+          You can save unfinished invoice as draft and complete later.
+        </p>
+
+        <div class="accordion-list">
+
+          <!-- My Details -->
+          <div class="accordion">
+            <button class="accordion-header">
+              <span>My Details</span>
+              <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="accordion-body">
+              <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" id="myName" placeholder="e.g. Washim Chowdhury" />
+              </div>
+              <div class="form-group">
+                <label>Address</label>
+                <input type="text" id="myAddress" placeholder="e.g. Zindabazar, Sylhet, Bangladesh" />
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>ABN</label>
+                  <input type="text" id="myABN" placeholder="e.g. ABN 12345" />
+                </div>
+                <div class="form-group">
+                  <label>Email</label>
+                  <input type="email" id="myEmail" placeholder="e.g. you@gmail.com" />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Phone</label>
+                  <input type="text" id="myPhone" placeholder="e.g. +88 01725 214 992" />
+                </div>
+                <div class="form-group">
+                  <label>Website</label>
+                  <input type="text" id="myWebsite" placeholder="e.g. washim.com" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Client Details -->
+          <div class="accordion">
+            <button class="accordion-header">
+              <span>Client Details</span>
+              <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="accordion-body">
+              <div class="form-group">
+                <label>Client Name</label>
+                <input type="text" id="clientName" placeholder="e.g. Tony Stark" />
+              </div>
+              <div class="form-group">
+                <label>Address</label>
+                <input type="text" id="clientAddress" placeholder="e.g. Mirabazar, Sylhet, Bangladesh" />
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Email</label>
+                  <input type="email" id="clientEmail" placeholder="e.g. tony@gmail.com" />
+                </div>
+                <div class="form-group">
+                  <label>Phone</label>
+                  <input type="text" id="clientPhone" placeholder="e.g. (209) 234-22435" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Website</label>
+                <input type="text" id="clientWebsite" placeholder="e.g. tonystark.com" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Invoice Details -->
+          <div class="accordion">
+            <button class="accordion-header">
+              <span>Invoice Details</span>
+              <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="accordion-body">
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Invoice Number</label>
+                  <input type="text" id="invoiceNumber" placeholder="e.g. #12346" />
+                </div>
+                <div class="form-group">
+                  <label>Project Name</label>
+                  <input type="text" id="projectName" placeholder="e.g. Filllo Product Design" />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Issued Date</label>
+                  <input type="date" id="issuedDate" />
+                </div>
+                <div class="form-group">
+                  <label>Due Date</label>
+                  <input type="date" id="dueDate" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Payment Details -->
+          <div class="accordion">
+            <button class="accordion-header">
+              <span>Payment Details</span>
+              <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="accordion-body">
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Payment Method</label>
+                  <input type="text" id="paymentMethod" placeholder="e.g. EFT Bank Transfer" />
+                </div>
+                <div class="form-group">
+                  <label>Account Name</label>
+                  <input type="text" id="accountName" placeholder="e.g. Washim Chowdhury" />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>BSB / Code</label>
+                  <input type="text" id="bsbCode" placeholder="e.g. 123456" />
+                </div>
+                <div class="form-group">
+                  <label>Account Number</label>
+                  <input type="text" id="accountNumber" placeholder="e.g. 991188343445123" />
+                </div>
+              </div>
+
+              <!-- Line Items -->
+              <div class="line-items-header">
+                <span>Description</span>
+                <span>Units</span>
+                <span>Price</span>
+                <span>GST</span>
+              </div>
+              <div id="lineItems">
+                <!-- JS will render rows here -->
+              </div>
+              <button class="add-item-btn" id="addItemBtn">+ Add item</button>
+            </div>
+          </div>
+
+          <!-- Add Notes -->
+          <div class="accordion">
+            <button class="accordion-header">
+              <span>Add Notes</span>
+              <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/>
+              </svg>
+            </button>
+            <div class="accordion-body">
+              <div class="form-group">
+                <label>Note</label>
+                <textarea id="invoiceNote" rows="3"
+                  placeholder="e.g. There will be a late payment fee of 10% per annum..."></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- Add Signature -->
+          <div class="accordion">
+            <button class="accordion-header">
+              <span>Add Signature</span>
+              <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="accordion-body">
+              <div class="form-group">
+                <label>Signature Name</label>
+                <input type="text" id="signatureName" placeholder="e.g. Washim Chowdhury" />
+              </div>
+              <div class="form-group">
+                <label>GST Note</label>
+                <input type="text" id="gstNote" placeholder="e.g. GST will be paid by me, Tony Stark." />
+              </div>
+            </div>
+          </div>
+
+          <!-- Email Details -->
+          <div class="accordion">
+            <button class="accordion-header">
+              <span>Email Details</span>
+              <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="accordion-body">
+              <div class="form-group">
+                <label>Email Subject</label>
+                <input type="text" id="emailSubject" placeholder="e.g. Invoice #12346 from Washim" />
+              </div>
+              <div class="form-group">
+                <label>Email Body</label>
+                <textarea id="emailBody" rows="4"
+                  placeholder="e.g. Hi Tony, please find your invoice attached..."></textarea>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /accordion-list -->
+
+        <button class="save-btn">Save Invoice</button>
+
+      </section>
+
+
+      <!-- 🔸 Right: Preview Panel -->
+      <section class="preview-panel">
+
+        <!-- Preview topbar -->
+        <div class="preview-topbar">
+          <div class="preview-tabs">
+            <button class="preview-tab active">Preview</button>
+            <button class="preview-tab">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+              </svg>
+              PDF
+            </button>
+            <button class="preview-tab">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              Email
+            </button>
+            <button class="preview-tab">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                <line x1="1" y1="10" x2="23" y2="10"/>
+              </svg>
+              Online Payment
+            </button>
+          </div>
+          <button class="save-invoice-btn">Save Invoice
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m6 9 6 6 6-6"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Invoice Document Preview -->
+        <div class="invoice-doc">
+
+          <div class="doc-header">
+            <div>
+              <h2 class="doc-title">Invoice</h2>
+              <p class="doc-number" id="prev-invoiceNumber">#12346</p>
+            </div>
+            <div class="doc-brand">Clorio</div>
+          </div>
+
+          <div class="doc-meta">
+            <div>
+              <span class="meta-label">Project</span>
+              <p class="meta-value" id="prev-projectName">Filllo Product Design</p>
+            </div>
+            <div class="meta-dates">
+              <div>
+                <span class="meta-label">Issued Date</span>
+                <p class="meta-value" id="prev-issuedDate">Feb 15, 2025</p>
+              </div>
+              <div>
+                <span class="meta-label">Due Date</span>
+                <p class="meta-value" id="prev-dueDate">Feb 20, 2025</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-parties">
+            <div class="party">
+              <span class="meta-label">From</span>
+              <p class="party-name" id="prev-myName">Washim Chowdhury</p>
+              <p class="party-detail" id="prev-myAddress">Zindabazar, Sylhet, Bangladesh</p>
+              <p class="party-detail" id="prev-myABN">ABN 12345</p>
+              <p class="party-detail" id="prev-myEmail">washim@gmail.com</p>
+              <p class="party-detail" id="prev-myPhone">+88 01725 214 992</p>
+              <p class="party-detail" id="prev-myWebsite">washim.com</p>
+            </div>
+            <div class="party right">
+              <span class="meta-label">To</span>
+              <p class="party-name" id="prev-clientName">Tony Stark</p>
+              <p class="party-detail" id="prev-clientAddress">Mirabazar, Sylhet, Bangladesh</p>
+              <p class="party-detail" id="prev-clientEmail">tony@gmail.com</p>
+              <p class="party-detail" id="prev-clientPhone">(209) 234-22435</p>
+              <p class="party-detail" id="prev-clientWebsite">tonystark.com</p>
+            </div>
+          </div>
+
+          <!-- Line items table -->
+          <table class="doc-items">
+            <thead>
+              <tr>
+                <th>Description</th>
+                <th>Units</th>
+                <th>Price</th>
+                <th>GST</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody id="prev-lineItems">
+              <tr>
+                <td>Web &amp; App Design</td>
+                <td>1</td>
+                <td>$2,500</td>
+                <td>0.00</td>
+                <td>$2,500.00</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="4"><strong>Total Amount</strong></td>
+                <td><strong id="prev-total">$2,500.00</strong></td>
+              </tr>
+            </tfoot>
+          </table>
+
+          <!-- Note -->
+          <div class="doc-note" id="prev-note">
+            Note: There will be a late payment fee of 10% per annum calculated daily for payments made after the due date.
+          </div>
+
+          <!-- Footer: payment + signature -->
+          <div class="doc-footer">
+            <div class="doc-payment">
+              <p class="footer-label">Payment Method</p>
+              <p class="footer-detail" id="prev-paymentMethod">EFT Bank Transfer</p>
+              <p class="footer-detail">Account Name : <span id="prev-accountName">Washim Chowdhury</span></p>
+              <p class="footer-detail">Code : <span id="prev-bsbCode">123456</span></p>
+              <p class="footer-detail">Account Number : <span id="prev-accountNumber">991188343445123</span></p>
+            </div>
+            <div class="doc-signature">
+              <div class="sig-line" id="prev-signatureName">Washim Chowdhury</div>
+              <p class="footer-detail sig-note" id="prev-gstNote">Note: GST will be paid by me, Tony Stark.</p>
+            </div>
+          </div>
+
+        </div><!-- /invoice-doc -->
+
+      </section>
+
+    </div><!-- /page -->
+  </div><!-- /app -->
+
+  <script src="create-invoice.js"></script>
+</body>
+</html>
