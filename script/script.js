@@ -7,7 +7,7 @@ themeToggle.addEventListener("click", () => {
   html.dataset.theme = html.dataset.theme === "dark" ? "light" : "dark";
 });
 
-// ── Filter panel ─────────────────────────────────────────────
+// -- Filter panel ---------------------------------------------
 const filterToggle = document.getElementById("filterToggle");
 const filterPanel  = document.getElementById("filterPanel");
 let activeFilters  = { status: "all", customer: "all", dateFrom: "", dateTo: "" };
@@ -42,20 +42,20 @@ document.getElementById("clearFilters").addEventListener("click", () => {
   renderTable();
 });
 
-// ── Data ─────────────────────────────────────────────────────
+// -- Data -----------------------------------------------------
 function formatDisplay(dateStr) {
   const [y, m, d] = dateStr.split("-");
   return `${d}-${m}-${y}`;
 }
 
 function calculateTotals(list, status) {
-  return "₦" + list
+  return "\u20a6" + list
     .filter(inv => inv.status === status)
     .reduce((sum, inv) => sum + inv.total, 0)
     .toFixed(2);
 }
 
-// ── Tabs ─────────────────────────────────────────────────────
+// -- Tabs -----------------------------------------------------
 const tabs = document.querySelectorAll(".tab");
 let activeTab = "all";
 
@@ -68,7 +68,7 @@ tabs.forEach(tab => {
   });
 });
 
-// ── Sort ─────────────────────────────────────────────────────
+// -- Sort -----------------------------------------------------
 const orderSelect = document.getElementById("change-order");
 let order = "newest";
 
@@ -77,10 +77,10 @@ orderSelect.addEventListener("change", (e) => {
   renderTable();
 });
 
-// ── Search ────────────────────────────────────────────────────
+// -- Search ----------------------------------------------------
 document.getElementById("searchInput").addEventListener("input", renderTable);
 
-// ── Render ────────────────────────────────────────────────────
+// -- Render ----------------------------------------------------
 const tableBody      = document.getElementById("invoiceTableBody");
 const overdueAmount  = document.getElementById("overdue-amount");
 const draftedTotals  = document.getElementById("drafted-totals");
@@ -117,9 +117,9 @@ function renderTable() {
           <td>${inv.project}</td>
           <td>
             <div class="total-breakdown">
-              <span class="total-main">Total: ₦${inv.total.toFixed(2)}</span>
-              <span class="total-paid">Paid: ₦${inv.paid.toFixed(2)}</span>
-              <span class="total-unpaid">Unpaid: ₦${inv.unpaid.toFixed(2)}</span>
+              <span class="total-main">Total: \u20a6${inv.total.toFixed(2)}</span>
+              <span class="total-paid">Paid: \u20a6${inv.paid.toFixed(2)}</span>
+              <span class="total-unpaid">Unpaid: \u20a6${inv.unpaid.toFixed(2)}</span>
             </div>
           </td>
           <td class="row-actions">
@@ -130,7 +130,7 @@ function renderTable() {
                 <path d="m9 18 6-6-6-6"/>
               </svg>
             </button>
-            <button class="row-menu" aria-label="Options">⋮</button>
+            <button class="row-menu" aria-label="Options">&#8942;</button>
           </td>
         </tr>
       `).join("")
@@ -160,9 +160,9 @@ function openPanel(invoiceId) {
   document.getElementById("panel-status").className = "status " + inv.status;
   document.getElementById("panel-client").textContent = inv.customer;
   document.getElementById("panel-project").textContent = inv.project;
-  document.getElementById("panel-total").textContent = "₦" + inv.total.toFixed(2);
-  document.getElementById("panel-paid").textContent = "₦" + inv.paid.toFixed(2);
-  document.getElementById("panel-unpaid").textContent = "₦" + inv.unpaid.toFixed(2);
+  document.getElementById("panel-total").textContent = "\u20a6" + inv.total.toFixed(2);
+  document.getElementById("panel-paid").textContent = "\u20a6" + inv.paid.toFixed(2);
+  document.getElementById("panel-unpaid").textContent = "\u20a6" + inv.unpaid.toFixed(2);
   document.getElementById("panel-view-btn").href = `invoice-detail.html?id=${inv.id}`;
 
   detailPanel.classList.add("open");

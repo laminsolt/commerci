@@ -43,7 +43,7 @@ body {
   overflow: hidden;
 }
 
-/* ── Layout ─────────────────────────────────────────────────── */
+/* -- Layout --------------------------------------------------- */
 .app {
   display: flex;
   height: 100vh;
@@ -57,7 +57,7 @@ body {
   min-width: 0;
 }
 
-/* ── Sidebar ─────────────────────────────────────────────────── */
+/* -- Sidebar --------------------------------------------------- */
 .sidebar {
   width: 220px;
   min-width: 220px;
@@ -214,7 +214,7 @@ body {
 }
 
 .sidebar-footer-btn:hover { color: #fff; border-color: rgba(255,255,255,0.2); }
-/* ── Form Panel ──────────────────────────────────────────────── */
+/* -- Form Panel ------------------------------------------------ */
 .form-panel {
   width: 420px;
   flex-shrink: 0;
@@ -263,7 +263,7 @@ body {
 
 .hint svg { flex-shrink: 0; margin-top: 1px; }
 
-/* ── Accordion ───────────────────────────────────────────────── */
+/* -- Accordion ------------------------------------------------- */
 .accordion-list {
   display: flex;
   flex-direction: column;
@@ -315,7 +315,7 @@ body {
   display: flex;
 }
 
-/* ── Form fields ─────────────────────────────────────────────── */
+/* -- Form fields ----------------------------------------------- */
 .form-group {
   display: flex;
   flex-direction: column;
@@ -357,7 +357,7 @@ body {
   gap: 10px;
 }
 
-/* ── Line items ──────────────────────────────────────────────── */
+/* -- Line items ------------------------------------------------ */
 .line-items-header {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
@@ -429,7 +429,7 @@ body {
   border-color: #9ca3af;
 }
 
-/* ── Save button ─────────────────────────────────────────────── */
+/* -- Save button ----------------------------------------------- */
 .save-btn {
   margin-top: 8px;
   width: 100%;
@@ -447,7 +447,7 @@ body {
   background: #d1d5db;
 }
 
-/* ── Preview Panel ───────────────────────────────────────────── */
+/* -- Preview Panel --------------------------------------------- */
 .preview-panel {
   flex: 1;
   display: flex;
@@ -507,7 +507,7 @@ body {
 
 .save-invoice-btn:hover { background: #1d39c4; }
 
-/* ── Invoice Document ────────────────────────────────────────── */
+/* -- Invoice Document ------------------------------------------ */
 .invoice-doc {
   flex: 1;
   margin: 20px;
@@ -596,7 +596,7 @@ body {
   color: #6b7280;
 }
 
-/* ── Doc items table ─────────────────────────────────────────── */
+/* -- Doc items table ------------------------------------------- */
 .doc-items {
   width: 100%;
   border-collapse: collapse;
@@ -632,7 +632,7 @@ body {
   color: #111827;
 }
 
-/* ── Note ────────────────────────────────────────────────────── */
+/* -- Note ------------------------------------------------------ */
 .doc-note {
   font-size: 12px;
   color: #6b7280;
@@ -642,7 +642,7 @@ body {
   line-height: 1.6;
 }
 
-/* ── Footer ──────────────────────────────────────────────────── */
+/* -- Footer ---------------------------------------------------- */
 .doc-footer {
   display: flex;
   justify-content: space-between;

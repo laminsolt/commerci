@@ -48,7 +48,7 @@ body {
   height: 100vh;
   overflow: hidden;
 }
-/* ── Body & Layout ───────────────────────────────────────────── */
+/* -- Body & Layout --------------------------------------------- */
 .page {
   flex: 1;
   display: flex;
@@ -67,7 +67,7 @@ body {
   background: var(--bg);
 }
 
-/* ── Topbar ──────────────────────────────────────────────────── */
+/* -- Topbar ---------------------------------------------------- */
 .topbar {
   display: flex;
   align-items: center;
@@ -135,7 +135,7 @@ body {
   font-weight: 600;
 }
 
-/* ── Welcome Banner ──────────────────────────────────────────── */
+/* -- Welcome Banner -------------------------------------------- */
 .welcome-banner {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -208,7 +208,7 @@ body {
   margin-top: 2px;
 }
 
-/* ── Stats Row ───────────────────────────────────────────────── */
+/* -- Stats Row ------------------------------------------------- */
 .stats-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -249,7 +249,7 @@ body {
   color: var(--text-3);
 }
 
-/* ── Cards ───────────────────────────────────────────────────── */
+/* -- Cards ----------------------------------------------------- */
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -278,19 +278,19 @@ body {
 
 .card-link:hover { text-decoration: underline; }
 
-/* ── Mid Row ─────────────────────────────────────────────────── */
+/* -- Mid Row --------------------------------------------------- */
 .mid-row {
   display: grid;
   grid-template-columns: 1.4fr 1fr 1fr;
   gap: 12px;
 }
 
-/* ── Chart ───────────────────────────────────────────────────── */
+/* -- Chart ----------------------------------------------------- */
 .chart-card canvas {
   width: 100% !important;
 }
 
-/* ── Tasks ───────────────────────────────────────────────────── */
+/* -- Tasks ----------------------------------------------------- */
 .task-row {
   display: flex;
   align-items: center;
@@ -329,7 +329,7 @@ body {
 .task-badge.med  { background: #fef9c3; color: #854d0e; }
 .task-badge.low  { background: #dcfce7; color: #166534; }
 
-/* ── Projects ────────────────────────────────────────────────── */
+/* -- Projects -------------------------------------------------- */
 .proj-row {
   display: flex;
   align-items: center;
@@ -367,14 +367,14 @@ body {
   text-align: right;
 }
 
-/* ── Bottom Row ──────────────────────────────────────────────── */
+/* -- Bottom Row ------------------------------------------------ */
 .bottom-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
 }
 
-/* ── Overdue Alerts ──────────────────────────────────────────── */
+/* -- Overdue Alerts -------------------------------------------- */
 .alert-row {
   display: flex;
   justify-content: space-between;
@@ -403,7 +403,7 @@ body {
   color: #e53e3e;
 }
 
-/* ── Quick Actions ───────────────────────────────────────────── */
+/* -- Quick Actions --------------------------------------------- */
 .quick-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;

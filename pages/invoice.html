@@ -3,26 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Invoices — FLARES INC</title>
+  <title>Invoices &mdash; FLARES INC</title>
   <link rel="stylesheet" href="../styles/invoice.css" />
   <link rel="stylesheet" href="../components/sidebar.css" />
 </head>
 <body>
   <div class="app">
-    <!-- 🔹 Sidebar -->
+    <!-- Sidebar -->
 
     <div id="sidebar-mount">
 
     </div>
 
-    <!-- 🔹 Main -->
+    <!-- Main -->
     <main class="main">
 
       <!-- Topbar -->
       <header class="topbar">
         <div class="topbar-left">
           <h1 class="page-title">Invoices</h1>
-          <span class="breadcrumb">Home • Invoices</span>
+          <span class="breadcrumb">Home &bull; Invoices</span>
         </div>
         <div class="topbar-right">
           <a href="create-invoice.html">
@@ -63,17 +63,17 @@
       <section class="stats">
         <div class="card">
           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v6l4 2"/><path d="M20 12v5"/><path d="M20 21h.01"/><path d="M21.25 8.2A10 10 0 1 0 16 21.16"/></svg>
-          <h2 id="overdue-amount">₦0.00</h2>
+          <h2 id="overdue-amount">&#8358;0.00</h2>
           <p>Overdue amount</p>
         </div>
         <div class="card">
           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/></svg>
-          <h2 id="drafted-totals">₦0.00</h2>
+          <h2 id="drafted-totals">&#8358;0.00</h2>
           <p>Drafted totals</p>
         </div>
         <div class="card">
           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 18H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5"/><path d="m16 19 3 3 3-3"/><path d="M19 16v6"/><circle cx="12" cy="12" r="2"/></svg>
-          <h2 id="unpaid-totals">₦0.00</h2>
+          <h2 id="unpaid-totals">&#8358;0.00</h2>
           <p>Unpaid totals</p>
         </div>
         <div class="card">
@@ -159,7 +159,7 @@
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
                     <input type="date" id="dateFrom" />
                   </div>
-                  <span class="date-sep">→</span>
+                  <span class="date-sep">&rarr;</span>
                   <div class="date-input-wrap">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
                     <input type="date" id="dateTo" />
@@ -180,7 +180,7 @@
             <thead>
               <tr>
                 <th>Status</th>
-                <th>Date ↕</th>
+                <th>Date</th>
                 <th>Number</th>
                 <th>Customer</th>
                 <th>Project</th>
@@ -201,7 +201,7 @@
           <h3 class="detail-invoice-number" id="panel-number">#58</h3>
           <p class="detail-invoice-date" id="panel-date">23-05-2023</p>
         </div>
-        <button class="detail-close-btn" id="detailClose">✕</button>
+        <button class="detail-close-btn" id="detailClose">&times;</button>
       </div>
 
       <div class="detail-section">
@@ -221,17 +221,17 @@
 
       <div class="detail-section">
         <p class="detail-label">TOTAL</p>
-        <p class="detail-value" id="panel-total">₦1,370.00</p>
+        <p class="detail-value" id="panel-total">&#8358;1,370.00</p>
       </div>
 
       <div class="detail-section">
         <p class="detail-label">PAID</p>
-        <p class="detail-value" id="panel-paid">₦1,370.00</p>
+        <p class="detail-value" id="panel-paid">&#8358;1,370.00</p>
       </div>
 
       <div class="detail-section">
         <p class="detail-label">UNPAID</p>
-        <p class="detail-value" id="panel-unpaid">₦0.00</p>
+        <p class="detail-value" id="panel-unpaid">&#8358;0.00</p>
       </div>
 
       <div class="detail-actions">

@@ -11,7 +11,7 @@ const sidebarHTML = `
             </p>
           </div>
         </div>
-        <button class="sidebar-collapse" id="sidebarCollapse">‹</button>
+        <button class="sidebar-collapse" id="sidebarCollapse">&lsaquo;</button>
       </div>
 
       <nav class="sidebar-nav">

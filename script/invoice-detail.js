@@ -12,7 +12,7 @@ if (!selectedInvoice) {
 }
 
 function formatMoney(amount) {
-  return "₦" + amount.toFixed(2);
+  return "\u20a6" + amount.toFixed(2);
 }
 
 function formatDisplay(dateStr) {

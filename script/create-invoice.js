@@ -82,7 +82,7 @@ function renderItems() {
         <input type="number" data-index="${index}" data-field="units" placeholder="0" />
         <input type="number" data-index="${index}" data-field="price" placeholder="0.00" />
         <input type="number" data-index="${index}" data-field="gst" placeholder="0.00" />
-        <button class="remove-item-btn" data-index="${index}">✕</button>
+        <button class="remove-item-btn" data-index="${index}">&times;</button>
       </div>
     `;
   }).join("");
@@ -125,7 +125,7 @@ function updatePreview() {
     return sum + (item.units * item.price) + parseFloat(item.gst || 0);
   }, 0);
 
-  document.getElementById("prev-total").textContent = "₦" + grandTotal.toFixed(2); 
+  document.getElementById("prev-total").textContent = "\u20a6" + grandTotal.toFixed(2);
 }
 
 const notes = document.getElementById("invoiceNote");

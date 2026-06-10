@@ -1,7 +1,7 @@
-/* ── Reset ───────────────────────────────────────────────────── */
+/* -- Reset ----------------------------------------------------- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* ── CSS Variables ───────────────────────────────────────────── */
+/* -- CSS Variables --------------------------------------------- */
 :root {
   --bg:           #f5f6fa;
   --surface:      #ffffff;
@@ -40,7 +40,7 @@
   --sidebar-hover-bg: #1e2433;
 }
 
-/* ── Base ────────────────────────────────────────────────────── */
+/* -- Base ------------------------------------------------------ */
 body {
   font-family: 'Segoe UI', system-ui, sans-serif;
   background: var(--bg);
@@ -50,14 +50,14 @@ body {
   transition: background 0.2s, color 0.2s;
 }
 
-/* ── Layout ──────────────────────────────────────────────────── */
+/* -- Layout ---------------------------------------------------- */
 .app {
   display: flex;
   height: 100vh;
   overflow: hidden;
 }
 
-/* ── Main ────────────────────────────────────────────────────── */
+/* -- Main ------------------------------------------------------ */
 .main {
   flex: 1;
   overflow-y: auto;
@@ -68,7 +68,7 @@ body {
   gap: 16px;
 }
 
-/* ── Topbar ──────────────────────────────────────────────────── */
+/* -- Topbar ---------------------------------------------------- */
 .topbar {
   display: flex;
   justify-content: space-between;
@@ -128,7 +128,7 @@ body {
 [data-theme="light"] .moon-icon { display: none; }
 [data-theme="dark"]  .sun-icon  { display: none; }
 
-/* ── Filter bar ──────────────────────────────────────────────── */
+/* -- Filter bar ------------------------------------------------ */
 .filter-bar {
   display: flex;
   align-items: center;
@@ -314,7 +314,7 @@ body {
 
 .clear-btn:hover { background: var(--surface-2); color: var(--text); }
 
-/* ── Stats ───────────────────────────────────────────────────── */
+/* -- Stats ----------------------------------------------------- */
 .stats {
   display: flex;
   gap: 12px;
@@ -360,7 +360,7 @@ body {
   gap: 3px;
 }
 
-/* ── Table area ──────────────────────────────────────────────── */
+/* -- Table area ------------------------------------------------ */
 .table-area {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -455,7 +455,7 @@ body {
   color: var(--text);
 }
 
-/* ── Invoice table ───────────────────────────────────────────── */
+/* -- Invoice table --------------------------------------------- */
 .table-section {
   overflow-y: auto;
   flex: 1;
