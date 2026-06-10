@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Invoice Detail — FLARES INC</title>
+  <link rel="stylesheet" href="sidebar.css" />
+  <link rel="stylesheet" href="invoice-detail.css" />
+</head>
+<body>
+  <div class="app">
+    <div id="sidebar-mount">
+        <!-- Sidebar will be rendered here -->
+    </div>
+
+    <div class="page">
+
+      <div class="detail-topbar">
+        <a href="invoice.html" class="back-link">
+          ← Back to Invoices
+        </a>
+        <div class="detail-topbar-actions">
+          <button class="action-btn" id="printBtn">Print</button>
+          <button class="action-btn">Download</button>
+          <button class="action-btn red" id="markPaidBtn">Mark as Paid</button>
+        </div>
+      </div>
+
+      <div class="detail-body">
+        <div class="invoice-doc">
+
+          <div class="doc-header">
+            <div>
+              <h1 class="doc-title">INVOICE</h1>
+              <p class="doc-number" id="doc-number">#--</p>
+            </div>
+            <div class="doc-brand">FLARES INC</div>
+          </div>
+
+          <div class="doc-meta">
+            <div>
+              <p class="meta-label">Project</p>
+              <p class="meta-value" id="doc-project">--</p>
+            </div>
+            <div class="meta-dates">
+              <div>
+                <p class="meta-label">Issue Date</p>
+                <p class="meta-value" id="doc-issued">--</p>
+              </div>
+              <div>
+                <p class="meta-label">Status</p>
+                <p class="meta-value" id="doc-status">--</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-parties">
+            <div class="party">
+              <p class="meta-label">From</p>
+              <p class="party-name">FLARES INC</p>
+              <p class="party-detail">Al-Amin Ayomide Sol...</p>
+            </div>
+            <div class="party right">
+              <p class="meta-label">Billed To</p>
+              <p class="party-name" id="doc-client">--</p>
+            </div>
+          </div>
+
+          <table class="doc-items">
+            <thead>
+              <tr>
+                <th>Description</th>
+                <th>Qty</th>
+                <th>Price</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody id="doc-items-body">
+              <tr>
+                <td colspan="4" style="color:#9ca3af;text-align:center;">No line items</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="3" style="text-align:right;font-weight:700;">Total</td>
+                <td id="doc-total" style="font-weight:700;">₦0.00</td>
+              </tr>
+              <tr>
+                <td colspan="3" style="text-align:right;color:#16a34a;">Paid</td>
+                <td id="doc-paid" style="color:#16a34a;">₦0.00</td>
+              </tr>
+              <tr>
+                <td colspan="3" style="text-align:right;color:#dc2626;">Unpaid</td>
+                <td id="doc-unpaid" style="color:#dc2626;">₦0.00</td>
+              </tr>
+            </tfoot>
+          </table>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="sidebar.js"></script>
+  <script type="module" src="invoice-detail.js"></script>
+</body>
+</html>

@@ -1,4 +1,5 @@
-// ── Theme toggle ─────────────────────────────────────────────
+import { invoices } from "./invoices-data.js";
+
 const themeToggle = document.getElementById("themeToggle");
 const html = document.documentElement;
 
@@ -42,15 +43,6 @@ document.getElementById("clearFilters").addEventListener("click", () => {
 });
 
 // ── Data ─────────────────────────────────────────────────────
-const invoices = [
-  { id: 53, customer: "Lamidi Airways", project: "Brand Design",    date: "2023-05-23", status: "overdue", total: 1698.34, paid: 0,       unpaid: 1698.34 },
-  { id: 54, customer: "Just Toyeeb",    project: "Web Development", date: "2023-12-30", status: "paid",    total: 578.38,  paid: 578.38,  unpaid: 0       },
-  { id: 55, customer: "Draco Malfoy",   project: "Logo Design",     date: "2026-03-09", status: "unpaid",  total: 878,     paid: 0,       unpaid: 878     },
-  { id: 56, customer: "Lamin Solt",     project: "App Design",      date: "2023-07-24", status: "draft",   total: 1360.43, paid: 0,       unpaid: 1360.43 },
-  { id: 57, customer: "Alade Godxila",  project: "SEO Audit",       date: "2023-03-22", status: "overdue", total: 1280,    paid: 0,       unpaid: 1280    },
-  { id: 58, customer: "Godfather",      project: "Consulting",      date: "2023-05-23", status: "paid",    total: 1370,    paid: 1370,    unpaid: 0       },
-];
-
 function formatDisplay(dateStr) {
   const [y, m, d] = dateStr.split("-");
   return `${d}-${m}-${y}`;
@@ -117,7 +109,7 @@ function renderTable() {
 
   tableBody.innerHTML = filtered.length
     ? filtered.map(inv => `
-        <tr>
+        <tr data-id="${inv.id}">
           <td><span class="status ${inv.status}">${inv.status[0].toUpperCase() + inv.status.slice(1)}</span></td>
           <td>${formatDisplay(inv.date)}</td>
           <td>#${inv.id}</td>
@@ -154,3 +146,39 @@ function renderTable() {
 }
 
 renderTable();
+
+const detailPanel = document.getElementById("detailPanel");
+const detailClose = document.getElementById("detailClose");
+
+function openPanel(invoiceId) {
+  const inv = invoices.find(invoice => invoice.id === invoiceId);
+  if (!inv) return;
+
+  document.getElementById("panel-number").textContent = "#" + inv.id;
+  document.getElementById("panel-date").textContent = formatDisplay(inv.date);
+  document.getElementById("panel-status").textContent = inv.status[0].toUpperCase() + inv.status.slice(1);
+  document.getElementById("panel-status").className = "status " + inv.status;
+  document.getElementById("panel-client").textContent = inv.customer;
+  document.getElementById("panel-project").textContent = inv.project;
+  document.getElementById("panel-total").textContent = "₦" + inv.total.toFixed(2);
+  document.getElementById("panel-paid").textContent = "₦" + inv.paid.toFixed(2);
+  document.getElementById("panel-unpaid").textContent = "₦" + inv.unpaid.toFixed(2);
+  document.getElementById("panel-view-btn").href = `invoice-detail.html?id=${inv.id}`;
+
+  detailPanel.classList.add("open");
+}
+
+window.openPanel = openPanel;
+
+detailClose.addEventListener("click", () => {
+  detailPanel.classList.remove("open");
+});
+
+tableBody.addEventListener("click", (e) => {
+  const btn = e.target.closest(".chevron-btn");
+  if (!btn) return;
+
+  const row = btn.closest("tr");
+  const id = Number(row.dataset.id);
+  openPanel(id);
+});
