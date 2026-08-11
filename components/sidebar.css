@@ -1,34 +1,59 @@
-
 /* -- Sidebar --------------------------------------------------- */
+#sidebar-mount {
+  flex: 0 0 auto;
+  height: 100vh;
+  min-height: 0;
+  display: flex;
+}
+
+#sidebar-mount:has(.sidebar.collapsed) {
+  flex-basis: 64px;
+}
+
 .sidebar {
-  width: 220px;
+  width: auto;
   min-width: 220px;
-  background: var(--sidebar-bg);
+  height: 100%;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
   display: flex;
   flex-direction: column;
   overflow-y: auto;
   overflow-x: hidden;
-  transition: width 0.2s ease, min-width 0.2s ease, margin 0.2s ease, border-radius 0.2s ease;
+  scrollbar-width: thin;
+  scrollbar-color: var(--sidebar-text) transparent;
+  transition:
+    width 0.2s ease,
+    min-width 0.2s ease,
+    margin 0.2s ease,
+    border-radius 0.2s ease;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: var(--text-3);
+  border-radius: 8px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 .sidebar-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 8px;
   padding: 16px 14px;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .sidebar.collapsed {
-  width: 64px;
+  width: auto;
   min-width: 64px;
-  height: calc(100vh - 32px);
-  margin: 16px 0 16px 16px;
-  border-radius: 18px;
-  background: var(--sidebar-bg);
-  box-shadow: 0 18px 40px rgba(26, 31, 46, 0.22);
-  overflow-y: auto;
-  scrollbar-width: none;
 }
 
 .sidebar.collapsed .company-name,
@@ -45,7 +70,6 @@
 
 .sidebar.collapsed .sidebar-header {
   justify-content: center;
-  padding: 10px 8px 18px;
   border-bottom: none;
 }
 
@@ -68,7 +92,6 @@
 .sidebar.collapsed .sidebar-nav {
   align-items: center;
   gap: 12px;
-  padding: 10px 8px;
 }
 
 .sidebar.collapsed .nav-group {
@@ -141,13 +164,13 @@
 .company-name {
   font-size: 13px;
   font-weight: 700;
-  color: #fff;
+  color: var(--text);
   line-height: 1.2;
 }
 
 .company-sub {
   font-size: 10px;
-  color: var(--sidebar-text);
+  color: var(--text-2);
   display: flex;
   align-items: center;
   gap: 4px;
@@ -165,14 +188,16 @@
 .sidebar-collapse {
   background: transparent;
   border: none;
-  color: var(--sidebar-text);
+  color: var(--text-2);
   cursor: pointer;
   font-size: 16px;
   padding: 2px 4px;
   border-radius: 4px;
 }
 
-.sidebar-collapse:hover { color: #fff; }
+.sidebar-collapse:hover {
+  color: var(--text);
+}
 
 .sidebar-nav {
   flex: 1;
@@ -189,20 +214,23 @@
   padding: 9px 10px;
   border-radius: 8px;
   font-size: 13px;
-  color: var(--sidebar-text);
+  color: var(--text-2);
   text-decoration: none;
-  transition: background 0.15s, color 0.15s;
+  transition:
+    background 0.15s,
+    color 0.15s;
   white-space: nowrap;
 }
 
 .nav-item:hover {
-  background: var(--sidebar-hover-bg);
-  color: #fff;
+  background: var(--surface-2);
+  color: var(--text);
 }
 
 .nav-item--active {
-  background: var(--sidebar-active-bg);
-  color: var(--sidebar-active-text);
+  background: var(--accent-soft);
+  box-shadow: inset 3px 0 0 var(--accent);
+  color: var(--accent);
   font-weight: 600;
 }
 
@@ -213,7 +241,10 @@
 }
 
 /* Submenu */
-.nav-group { display: flex; flex-direction: column; }
+.nav-group {
+  display: flex;
+  flex-direction: column;
+}
 
 .nav-submenu {
   padding-left: 36px;
@@ -242,13 +273,19 @@
   font-size: 12.5px;
   color: var(--sidebar-text);
   text-decoration: none;
-  transition: background 0.15s, color 0.15s;
+  transition:
+    background 0.15s,
+    color 0.15s;
 }
 
-.nav-subitem:hover { background: var(--sidebar-hover-bg); color: #fff; }
+.nav-subitem:hover {
+  background: var(--surface-2);
+  color: var(--text);
+}
 
 .nav-subitem--active {
-  color: #fff;
+  background: var(--accent-soft);
+  color: var(--accent);
   font-weight: 600;
 }
 
@@ -256,11 +293,14 @@
   margin: 12px 8px;
   padding: 8px;
   background: transparent;
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 8px;
   color: var(--sidebar-text);
   cursor: pointer;
   font-size: 14px;
 }
 
-.sidebar-footer-btn:hover { color: #fff; border-color: rgba(255,255,255,0.2); }
+.sidebar-footer-btn:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.2);
+}

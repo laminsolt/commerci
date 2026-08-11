@@ -44,7 +44,7 @@ const sidebarHTML = `
           </div>
         </div>
 
-        <a href="#" class="nav-item">
+        <a href="clients.html" class="nav-item">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
           <span>Clients</span>
         </a>
@@ -82,7 +82,7 @@ const sidebarHTML = `
         </div>
 
         <div class="nav-group">
-          <a href="#" class="nav-item nav-item--active">
+          <a href="#" class="nav-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
             <span>Finance</span>
             <svg class="nav-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
@@ -90,7 +90,7 @@ const sidebarHTML = `
           <div class="nav-submenu">
             <a href="#" class="nav-subitem">Proposal</a>
             <a href="#" class="nav-subitem">Estimates</a>
-            <a href="invoice.html" class="nav-subitem nav-subitem--active">Invoices</a>
+            <a href="invoice.html" class="nav-subitem">Invoices</a>
             <a href="#" class="nav-subitem">Credit Note</a>
             <a href="#" class="nav-subitem">Expenses</a>
           </div>
@@ -166,6 +166,29 @@ document.getElementById("sidebar-mount").innerHTML = sidebarHTML;
 const navGroups = document.querySelectorAll(".nav-group");
 const allSubItems = document.querySelectorAll(".nav-subitem");
 
+function clearActiveNavigation() {
+  document
+    .querySelectorAll(".nav-item--active, .nav-subitem--active")
+    .forEach((item) => item.classList.remove("nav-item--active", "nav-subitem--active"));
+}
+
+function setActiveNavigation() {
+  const currentPath = window.location.pathname;
+
+  document.querySelectorAll(".nav-item, .nav-subitem").forEach((item) => {
+    const href = item.getAttribute("href");
+    if (!href || href === "#") return;
+
+    const itemPath = new URL(href, window.location.href).pathname;
+    if (itemPath !== currentPath) return;
+
+    item.classList.add(item.classList.contains("nav-subitem") ? "nav-subitem--active" : "nav-item--active");
+    item.closest(".nav-group")?.querySelector(":scope > .nav-item")?.classList.add("nav-item--active");
+  });
+}
+
+setActiveNavigation();
+
 navGroups.forEach((group) => {
   let header = group.querySelector(".nav-item");
 
@@ -182,12 +205,7 @@ navGroups.forEach((group) => {
   let navSubItem = group.querySelectorAll(".nav-subitem");
   navSubItem.forEach((navSubItem) => {
     navSubItem.addEventListener("click", (e) => {
-      document
-        .querySelectorAll(".nav-item--active")
-        .forEach((el) => el.classList.remove("nav-item--active"));
-      allSubItems.forEach((item) =>
-        item.classList.remove("nav-subitem--active"),
-      );
+      clearActiveNavigation();
 
       header.classList.add("nav-item--active");
       navSubItem.classList.add("nav-subitem--active");
@@ -196,27 +214,21 @@ navGroups.forEach((group) => {
 });
 
 function toggleSidebar() {
-  document.querySelector(".sidebar").classList.toggle("collapsed");
+  const sidebar = document.querySelector(".sidebar");
+  const sidebarMount = document.getElementById("sidebar-mount");
+  const isCollapsed = sidebar.classList.toggle("collapsed");
+
+  if (sidebarMount) {
+    const sidebarWidth = isCollapsed ? "64px" : "220px";
+    sidebarMount.style.flexBasis = sidebarWidth;
+    sidebarMount.style.width = sidebarWidth;
+  }
 }
 
 document.getElementById("sidebarCollapse")?.addEventListener("click", toggleSidebar);
 document.getElementById("sidebarFooterCollapse")?.addEventListener("click", toggleSidebar);
 
-const topbar = document.querySelector(".topbar");
-
-if (topbar) {
-  const hamburger = document.createElement("button");
-  hamburger.className = "hamburger-btn";
-  hamburger.id = "hamburgerBtn";
-  hamburger.setAttribute("aria-label", "Toggle sidebar");
-  hamburger.innerHTML = `
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <line x1="3" y1="6" x2="21" y2="6"/>
-      <line x1="3" y1="12" x2="21" y2="12"/>
-      <line x1="3" y1="18" x2="21" y2="18"/>
-    </svg>
-  `;
-  topbar.prepend(hamburger);
-  hamburger.addEventListener("click", toggleSidebar);
-}
+document.querySelector(".sidebar")?.addEventListener("click", (event) => {
+  if (event.target.closest(".sidebar-nav, button, a")) return;
+  toggleSidebar();
+});
